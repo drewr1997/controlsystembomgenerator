@@ -4,7 +4,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel
 import sqlite3
 import math
-import osfrom fastapi import FastAPI
+import os
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 DB_PATH = "bom_rules.db"
