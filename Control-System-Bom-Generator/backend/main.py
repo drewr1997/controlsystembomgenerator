@@ -4,11 +4,14 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel
 import sqlite3
 import math
-import os
+import osfrom fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 DB_PATH = "bom_rules.db"
 
 app = FastAPI()
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 # Allow your frontend (index.html) to call the API
 app.add_middleware(
