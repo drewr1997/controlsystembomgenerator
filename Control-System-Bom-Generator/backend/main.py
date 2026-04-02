@@ -14,9 +14,12 @@ app = FastAPI()
 
 DB_PATH = "bom_rules.db"
 
-app = FastAPI()
 
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+app.mount("/static", StaticFiles(directory="../frontend"), name="static")
+
+@app.get("/")
+def read_index():
+    return FileResponse("../frontend/index.html")
 
 # Allow your frontend (index.html) to call the API
 app.add_middleware(
@@ -26,7 +29,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ---------- INPUT MODEL FROM FRONTEND ----------
 
