@@ -3,7 +3,7 @@ const tbody = document.querySelector("#bom-table tbody");
 const noResults = document.getElementById("no-results");
 
 // Change this if your backend is on a different machine / port
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
