@@ -6,13 +6,17 @@ import sqlite3
 import math
 import os
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+import os
+
+app = FastAPI()
 
 DB_PATH = "bom_rules.db"
 
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
 
 # Allow your frontend (index.html) to call the API
 app.add_middleware(
